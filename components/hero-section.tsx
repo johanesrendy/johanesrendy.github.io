@@ -8,7 +8,7 @@ import profileImage from "@/public/profile.png"; // Import gambar
 
 export default function HeroSection() {
   return (
-    <section id="home" className="min-h-[100dvh] flex items-center pt-16 pb-16">
+    <section id="home" className="min-h-screen flex items-center pt-16 pb-16">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
@@ -17,7 +17,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="flex justify-center mt-8 md:mt-0 md:hidden"
           >
-            <div className="relative w-[18rem] h-[30rem] ">
+            <div className="relative w-[15rem] h-[27rem] ">
               <Image
                 src={profileImage}
                 alt="Johanes Rendy Wichaksono"
