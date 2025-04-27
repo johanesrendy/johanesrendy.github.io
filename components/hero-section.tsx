@@ -37,7 +37,7 @@ export default function HeroSection() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
+              transition={{ duration: 0.5 }}
               className="text-primary font-medium text-lg"
             >
               HELLO!
@@ -45,7 +45,7 @@ export default function HeroSection() {
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ duration: 0.5 }}
               className="text-4xl font-bold"
             >
               I&apos;m Johanes Rendy Wichaksono
@@ -53,7 +53,7 @@ export default function HeroSection() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
+              transition={{ duration: 0.5 }}
               className="text-xl text-muted-foreground"
             >
               Front End Web Developer
@@ -61,7 +61,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
+              transition={{ duration: 0.5 }}
             >
               <Button asChild className="mt-4" size="lg">
                 <a href="#about">

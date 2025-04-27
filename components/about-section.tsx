@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function AboutSection() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <section id="about" className="py-20 bg-muted/30">
@@ -26,17 +26,19 @@ export default function AboutSection() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ duration: 0.8 }}
             className="text-lg leading-relaxed"
           >
-            A Student of Information System from Sepuluh Nopember Institute of Technology. Experienced as a Front-End
-            Developer who works with HTML, CSS, JavaScript, React.js, Next JS, Typescript. Currently working at some
-            events as a Front-End Developer and also graduated from Full-Stack Web Developer bootcamp program at
-            HariSenin. A responsible, dedication, honest individual, and have a strong inclination for learning new
-            things.
+            A Student of Information System from Sepuluh Nopember Institute of
+            Technology. Experienced as a Front-End Developer who works with
+            HTML, CSS, JavaScript, React.js, Next JS, Typescript. Currently
+            working at some events as a Front-End Developer and also graduated
+            from Full-Stack Web Developer bootcamp program at HariSenin. A
+            responsible, dedication, honest individual, and have a strong
+            inclination for learning new things.
           </motion.p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

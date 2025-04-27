@@ -1,28 +1,30 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const education = [
   {
     school: "Sepuluh Nopember Institute of Technology",
-    degree: "Bachelor of Information Systems",
-    period: "2019 - 2023",
-    logo: "/placeholder.svg?height=80&width=80",
+    degree: "Bachelor's Degree of Information Systems (S. Kom.)",
+    period: "2022 - 2026",
+    website: "https://www.its.ac.id/",
+    logo: "/itslogo.png",
   },
   {
-    school: "HariSenin Bootcamp",
-    degree: "Full-Stack Web Developer Program",
-    period: "2021 - 2022",
-    logo: "/placeholder.svg?height=80&width=80",
+    school: "SMAN 1 Kalasan",
+    degree: "High School",
+    period: "2020 - 2022",
+    website: "https://www.sman1kalasan.sch.id/",
+    logo: "/smalogo.png",
   },
-]
+];
 
 export default function EducationSection() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <section id="education" className="py-20">
@@ -45,28 +47,39 @@ export default function EducationSection() {
                 key={index}
                 initial={{ opacity: 0, x: -50 }}
                 animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                transition={{ delay: 0.2 * index, duration: 0.6 }}
-                className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 rounded-lg bg-card hover:shadow-lg transition-shadow"
+                transition={{ duration: 0.6 }}
               >
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
-                    <img src={edu.logo || "/placeholder.svg"} alt={edu.school} className="w-10 h-10 sm:w-12 sm:h-12" />
+                <a
+                  href={edu.website}
+                  target="_blank"
+                  className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 rounded-lg bg-card hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-primary/10 dark:bg-primary/30 flex items-center justify-center">
+                      <img
+                        src={edu.logo || "/placeholder.svg"}
+                        alt={edu.school}
+                        className="w-10 h-10 sm:w-12 sm:h-12"
+                      />
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex-grow text-center sm:text-left">
-                  <h3 className="text-lg sm:text-xl font-bold">{edu.school}</h3>
-                  <p className="text-primary">{edu.degree}</p>
-                </div>
+                  <div className="flex-grow text-center sm:text-left">
+                    <h3 className="text-lg sm:text-xl font-bold">
+                      {edu.school}
+                    </h3>
+                    <p className="text-primary">{edu.degree}</p>
+                  </div>
 
-                <div className="flex-shrink-0 bg-primary/10 px-4 py-2 rounded-full mt-2 sm:mt-0">
-                  <p className="text-sm font-medium">{edu.period}</p>
-                </div>
+                  <div className="flex-shrink-0 bg-primary/10 px-4 py-2 rounded-full mt-2 sm:mt-0">
+                    <p className="text-sm font-medium">{edu.period}</p>
+                  </div>
+                </a>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

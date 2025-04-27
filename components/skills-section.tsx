@@ -2,22 +2,27 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import StackIcon from "tech-stack-icons";
 
 type Skill = { name: string; icon: string };
 
 const skills: Skill[] = [
   { name: "HTML", icon: "html5" },
   { name: "CSS", icon: "css3" },
-  { name: "JavaScript", icon: "javascript" },
+  { name: "JavaScript", icon: "js" },
   { name: "TypeScript", icon: "typescript" },
-  { name: "React", icon: "react" },
+  { name: "React", icon: "reactjs" },
   { name: "Next.js", icon: "nextjs" },
   { name: "Node.js", icon: "nodejs" },
   { name: "Git", icon: "git" },
+  { name: "Github", icon: "github" },
   { name: "Tailwind CSS", icon: "tailwindcss" },
-  { name: "Ant Design", icon: "antdesign" },
+  { name: "Ant Design", icon: "/antd.svg" },
   { name: "Figma", icon: "figma" },
-  { name: "VS Code", icon: "vscode" },
+  { name: "my SQL", icon: "mysql" },
+  { name: "Bootstrap", icon: "bootstrap4" },
+  { name: "Laravel", icon: "laravel" },
+  { name: "Supabase", icon: "/supabase.svg" },
 ];
 
 // Group skills into rows of 3 for mobile and 5 for larger screens
@@ -66,20 +71,24 @@ export default function SkillsSection() {
                       inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                     }
                     transition={{
-                      delay: 0.1 * (index + rowIndex * 3),
                       duration: 0.5,
                     }}
                     className="flex flex-col items-center"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
                       <div className="w-8 h-8 text-primary">
                         {/* Placeholder for skill icon */}
-                        <div className="w-full h-full rounded-full bg-primary/20 flex items-center justify-center">
-                          <span className="text-xs">
-                            {skill.icon.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
+                        {/* Render icon or image */}
+                        {skill.icon.startsWith("/") ? (
+                          <img
+                            src={skill.icon}
+                            alt={skill.name}
+                            className="w-full h-full object-contain"
+                          />
+                        ) : (
+                          <StackIcon name={skill.icon} />
+                        )}
                       </div>
                     </div>
                     <span className="font-medium text-sm">{skill.name}</span>
@@ -104,20 +113,24 @@ export default function SkillsSection() {
                       inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                     }
                     transition={{
-                      delay: 0.1 * (index + rowIndex * 5),
                       duration: 0.5,
                     }}
                     className="flex flex-col items-center"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                    <div className="w-20 h-20 rounded-full bg-primary/10 dark:bg-primary/30 flex items-center justify-center mb-3">
                       <div className="w-10 h-10 text-primary">
                         {/* Placeholder for skill icon */}
-                        <div className="w-full h-full rounded-full bg-primary/20 flex items-center justify-center">
-                          <span className="text-xs">
-                            {skill.icon.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
+                        {/* Render icon or image */}
+                        {skill.icon.startsWith("/") ? (
+                          <img
+                            src={skill.icon}
+                            alt={skill.name}
+                            className="w-full h-full object-contain"
+                          />
+                        ) : (
+                          <StackIcon name={skill.icon} />
+                        )}
                       </div>
                     </div>
                     <span className="font-medium">{skill.name}</span>

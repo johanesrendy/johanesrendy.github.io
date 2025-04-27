@@ -1,34 +1,30 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const experiences = [
   {
-    company: "Tech Company A",
-    role: "Front End Developer",
-    period: "2022 - Present",
-    logo: "/placeholder.svg?height=80&width=80",
+    company: "Jago Teknik",
+    role: "Project Manager",
+    period: "Aug 2023 - Jan 2025",
+    logo: "/jtlogo.svg",
+    website: "https://www.linkedin.com/company/jagoteknik/",
   },
   {
-    company: "Web Agency B",
-    role: "Junior Developer",
-    period: "2020 - 2022",
-    logo: "/placeholder.svg?height=80&width=80",
+    company: "Zeta Solution",
+    role: "Web Software Engineer",
+    period: "Feb 2025 – May 2025",
+    logo: "/zetalogo.jpg",
+    website: "https://www.linkedin.com/company/zetasolutionid/",
   },
-  {
-    company: "Startup C",
-    role: "Intern",
-    period: "2019 - 2020",
-    logo: "/placeholder.svg?height=80&width=80",
-  },
-]
+];
 
 export default function ExperienceSection() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <section id="experience" className="py-20 bg-muted/30">
@@ -51,28 +47,39 @@ export default function ExperienceSection() {
                 key={index}
                 initial={{ opacity: 0, x: -50 }}
                 animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                transition={{ delay: 0.2 * index, duration: 0.6 }}
-                className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 rounded-lg bg-card hover:shadow-lg transition-shadow"
+                transition={{ duration: 0.6 }}
               >
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
-                    <img src={exp.logo || "/placeholder.svg"} alt={exp.company} className="w-10 h-10 sm:w-12 sm:h-12" />
+                <a
+                  href={exp.website}
+                  target="_blank"
+                  className="flex flex-col sm:flex-row items-center sm:items-start gap-6 p-6 rounded-lg bg-card hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-primary/10 dark:bg-primary/30 flex items-center justify-center">
+                      <img
+                        src={exp.logo || "/placeholder.svg"}
+                        alt={exp.company}
+                        className="w-10 h-10 sm:w-12 sm:h-12"
+                      />
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex-grow text-center sm:text-left">
-                  <h3 className="text-lg sm:text-xl font-bold">{exp.company}</h3>
-                  <p className="text-primary">{exp.role}</p>
-                </div>
+                  <div className="flex-grow text-center sm:text-left">
+                    <h3 className="text-lg sm:text-xl font-bold">
+                      {exp.company}
+                    </h3>
+                    <p className="text-primary">{exp.role}</p>
+                  </div>
 
-                <div className="flex-shrink-0 bg-primary/10 px-4 py-2 rounded-full mt-2 sm:mt-0">
-                  <p className="text-sm font-medium">{exp.period}</p>
-                </div>
+                  <div className="flex-shrink-0 bg-primary/10 px-4 py-2 rounded-full mt-2 sm:mt-0">
+                    <p className="text-sm font-medium">{exp.period}</p>
+                  </div>
+                </a>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
